@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+    postgres:
+        image: postgres:13.3
+        environment:
+            POSTGRES_DB: app
+            POSTGRES_USER: user
+            POSTGRES_PASSWORD: V3ryS3cr3t
+            PGDATA: /var/lib/postgresql/data/pgdata/

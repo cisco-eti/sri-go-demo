@@ -1,0 +1,19 @@
+FROM sre-go-helloworld:base as base-build
+
+FROM containers.cisco.com/eti-sre/sre-golang-docker:latest
+
+COPY --from=base-build \
+    /go/src/wwwin-github.cisco.com/eti/sre-go-helloworld/sre-go-helloworld \
+    /usr/bin/sre-go-helloworld
+
+COPY --from=base-build \
+    /go/src/wwwin-github.cisco.com/eti/sre-go-helloworld/web \
+    /web
+
+COPY --from=base-build \
+    /go/src/wwwin-github.cisco.com/eti/sre-go-helloworld/s3_object.txt \
+    /s3_object.txt
+
+EXPOSE 5000
+
+ENTRYPOINT ["/usr/bin/sre-go-helloworld"]

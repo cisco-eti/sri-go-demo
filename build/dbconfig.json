@@ -1,0 +1,9 @@
+{ 
+    "host": "postgres",
+    "port": "5432",
+    "dbname": "helloworld",
+    "user": "postgres",
+    "password": "strongpassword",
+    "sslmode": "disable",
+    "timezone": "UTC"
+}
